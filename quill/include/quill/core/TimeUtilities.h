@@ -93,7 +93,7 @@ inline time_t timegm(tm* tm)
 #else
   time_t const ret_val = ::timegm(tm);
 
-  if (QUILL_UNLIKELY(ret_val == (time_t)-1))
+  if (QUILL_UNLIKELY(ret_val == static_cast<time_t>(-1)))
   {
     QUILL_THROW(QuillError{"timegm failed."});
   }
